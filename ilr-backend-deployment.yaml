@@ -5,8 +5,8 @@ metadata:
   labels:
     app: ilr-backend
 spec:
-  replicas: 2
-  selector: 
+  replicas: 1
+  selector:
     matchLabels:
       app: ilr-backend-v1
   template:
@@ -15,9 +15,9 @@ spec:
         app: ilr-backend-v1
     spec:
       containers:
-      - name: ilr-backend-server
-        image: sahilpatel93/ilr-backend:latest
-        ports:
-        - containerPort: 8000
+        - name: ilr-backend-server
+          image: sahilpatel93/ilr-backend:latest
+          ports:
+            - containerPort: 8000
       imagePullSecrets:
-      - name: regcred
+        - name: regcred
